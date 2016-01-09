@@ -1,0 +1,3 @@
+#cram config file
+echo "setup loaded"
+EXE=${TESTDIR}/main
