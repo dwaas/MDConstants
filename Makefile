@@ -8,6 +8,10 @@ EXE=tests/main
 TESTDIR=tests
 ARGS= ../../testrun
 
+#make check flags
+RAMDISK=~/ramdisk
+RAMDIR=$(RAMDISK)/MDConstants
+
 ifeq ($(debug), 1) #test code
 RUNFLAGS= -O0 -g -Werror $(FLAGS)
 else #production code
@@ -20,8 +24,12 @@ all: $(EXE)
 
 #debug and profiling
 .PHONY: check
-check: clean_tests $(EXE)
-	cram -vi $(TESTDIR) 
+check: ramdir
+	cd $(RAMDIR) && cram -vi $(TESTDIR); rm -rf $(RAMDIR); cd -  
+
+.PHONY: ramdir
+ramdir: clean $(EXE)
+	mkdir -p $(RAMDIR) && cp -r * $(RAMDIR) && ls $(RAMDIR)
 
 .PHONY: debug
 debug: clean $(EXE)
