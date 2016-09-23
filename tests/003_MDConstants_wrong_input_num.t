@@ -5,8 +5,6 @@ setup::
 
   $ . ${TESTDIR}/setup
   setup loaded
-  $ echo ${EXE}
-  /home/devin/MPI/MDConstants/tests/main
  
 wrong input num::
 
