@@ -1,0 +1,9 @@
+language: c 
+
+os: linux
+dist: xenial
+
+before_install:
+        - sudo pip install cram
+
+script: make check
