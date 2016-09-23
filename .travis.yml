@@ -9,4 +9,4 @@ compiler:
 before_install:
         - sudo pip install cram
 
-script: make check
+script: make && make check
